@@ -1,0 +1,1 @@
+# NativoPlusStudio.AuthToken.SqlServerCaching
