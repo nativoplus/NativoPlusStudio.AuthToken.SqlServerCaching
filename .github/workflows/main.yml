@@ -1,0 +1,26 @@
+name: publish to nuget
+on:
+  push:
+    branches:
+      - main # Default release branch
+jobs:
+  publish:
+    name: list on nuget
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Publish
+        
+      - name: publish on version change
+        
+        uses: rohith/publish-nuget@v2
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: NativoPlusStudio.AuthToken.SqlServerCaching/NativoPlusStudio.AuthToken.SqlServerCaching.csproj
+          
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: NativoPlusStudio.AuthToken.SqlServerCaching
+          
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
