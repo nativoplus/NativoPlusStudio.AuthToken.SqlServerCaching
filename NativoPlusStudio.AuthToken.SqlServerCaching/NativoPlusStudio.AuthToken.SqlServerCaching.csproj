@@ -6,6 +6,8 @@
     <PackageTags>auth token sql server cache migrations nativoplus</PackageTags>
     <PackageProjectUrl>https://github.com/nativoplus/NativoPlusStudio.AuthToken.SqlServerCaching</PackageProjectUrl>
     <Description>NativoPlusStudio.AuthToken.SqlServerCaching is part of the NativoPlusStudio.AuthToken set of libraries that can be used to store the auth token into a sql server cache and later retrieve it.</Description>
+    <Version>1.0.0</Version>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
