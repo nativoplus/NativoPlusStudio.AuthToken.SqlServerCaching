@@ -29,10 +29,12 @@ namespace NativoPlusStudio.AuthToken.SqlServerCaching
         /// <returns></returns>
         public IAuthTokenDetails GetCachedAuthToken(string protectedResourceName)
         {
+            _logger.Information("#GetCachedAuthToken start");
             try
             {
                 var sqlDateStringUtcNow = ConvertDateTimeToSqlDateString(DateTime.UtcNow);
                 var formattedQuery = string.Format(SqlServerCacheQueries.GetCachedAuthToken, _sqlServerCacheOptions.MinutesToKeepTokenStored.ToString(), sqlDateStringUtcNow, _sqlServerCacheOptions.Schema, _sqlServerCacheOptions.Table, protectedResourceName);
+                _logger.Information(formattedQuery);
                 return QueryFirstOrDefault<AuthTokenDetails>(
                     sql: formattedQuery
                 );
@@ -54,9 +56,11 @@ namespace NativoPlusStudio.AuthToken.SqlServerCaching
         /// <returns></returns>
         public (int upsertResult, string errorMessage) UpsertAuthTokenCache(string protectedResourceName, string token, string tokenType, DateTime? expirationDate)
         {
+            _logger.Information("#UpsertAuthTokenCache start");
+
             var insert = GetCachedAuthToken(protectedResourceName)?.Token == null;
             var sqlDate = expirationDate.HasValue ? ConvertDateTimeToSqlDateString(expirationDate.Value) : null;
-
+            _logger.Information($"ExpirationDate: {sqlDate}");
             var query = string.Format(
                 insert ? SqlServerCacheQueries.InsertAuthTokenCache : SqlServerCacheQueries.UpdateAuthTokenCache, 
                 _sqlServerCacheOptions.Schema, 
@@ -65,13 +69,6 @@ namespace NativoPlusStudio.AuthToken.SqlServerCaching
                 token, 
                 tokenType, 
                 sqlDate);
-
-            //return ExecuteTransaction(innerAction: (sql, parameter, transaction) => 
-            //{
-            //    Execute(sql: sql, transaction: transaction);
-            //}, 
-            //query,
-            //null);
 
             try
             {
