@@ -6,8 +6,9 @@
     <PackageTags>auth token sql server cache migrations nativoplus</PackageTags>
     <PackageProjectUrl>https://github.com/nativoplus/NativoPlusStudio.AuthToken.SqlServerCaching</PackageProjectUrl>
     <Description>NativoPlusStudio.AuthToken.SqlServerCaching is part of the NativoPlusStudio.AuthToken set of libraries that can be used to store the auth token into a sql server cache and later retrieve it.</Description>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Nullable>disable</Nullable>
+    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +21,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference PrivateAssets="all" Include="..\NativoPlusStudio.DapperExtension\NativoPlusStudio.DapperExtension.csproj" />
+    <ProjectReference Include="..\NativoPlusStudio.DapperExtension\NativoPlusStudio.DapperExtension.csproj">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <IncludeAssets>NativoPlusStudio.DapperExtension.dll</IncludeAssets>
+    </ProjectReference>
   </ItemGroup>
-
+  <Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
+    <ItemGroup>
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))"/>
+    </ItemGroup>
+  </Target>
 </Project>
