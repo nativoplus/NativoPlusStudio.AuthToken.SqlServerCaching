@@ -6,13 +6,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace NativoPlusStudio.DapperExtension
+namespace NativoPlusStudio.AuthToken.SqlServerCaching
 {
-    public abstract class BaseDapperRepository
+    public abstract class BaseDapper
     {
         private string _connectionString;
         protected readonly ILogger _logger;
-        public BaseDapperRepository(string connectionString, ILogger logger = null)
+        internal BaseDapper(string connectionString, ILogger logger = null)
         {
             if (logger == null)
             {

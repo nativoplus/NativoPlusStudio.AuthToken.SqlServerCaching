@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.AuthToken.SqlServerCaching", "NativoPlusStudio.AuthToken.SqlServerCaching\NativoPlusStudio.AuthToken.SqlServerCaching.csproj", "{5BB546F6-FD8D-4D5A-9D9D-998F9F53216E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.DapperExtension", "NativoPlusStudio.DapperExtension\NativoPlusStudio.DapperExtension.csproj", "{D2384843-7C4D-431A-B7F0-D01A9FB84883}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DE52E510-5CC4-4EEA-94F8-BD033645EDE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativoPlusStudio.AuthToken.CachingTests", "NativoPlusStudio.AuthToken.CachingTests\NativoPlusStudio.AuthToken.CachingTests.csproj", "{E8953298-9FC1-4076-A985-8AD9AFF534F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativoPlusStudio.AuthToken.CachingTests", "NativoPlusStudio.AuthToken.CachingTests\NativoPlusStudio.AuthToken.CachingTests.csproj", "{E8953298-9FC1-4076-A985-8AD9AFF534F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{5BB546F6-FD8D-4D5A-9D9D-998F9F53216E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BB546F6-FD8D-4D5A-9D9D-998F9F53216E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BB546F6-FD8D-4D5A-9D9D-998F9F53216E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2384843-7C4D-431A-B7F0-D01A9FB84883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2384843-7C4D-431A-B7F0-D01A9FB84883}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2384843-7C4D-431A-B7F0-D01A9FB84883}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2384843-7C4D-431A-B7F0-D01A9FB84883}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E8953298-9FC1-4076-A985-8AD9AFF534F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E8953298-9FC1-4076-A985-8AD9AFF534F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8953298-9FC1-4076-A985-8AD9AFF534F5}.Release|Any CPU.ActiveCfg = Release|Any CPU

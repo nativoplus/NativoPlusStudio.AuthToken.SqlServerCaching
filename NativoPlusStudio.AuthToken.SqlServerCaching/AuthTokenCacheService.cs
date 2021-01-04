@@ -3,13 +3,12 @@ using Microsoft.Extensions.Options;
 using NativoPlusStudio.AuthToken.Core.Interfaces;
 using NativoPlusStudio.AuthToken.SqlServerCaching.Configuration;
 using NativoPlusStudio.AuthToken.SqlServerCaching.DTOs;
-using NativoPlusStudio.DapperExtension;
 using Serilog;
 using System;
 
 namespace NativoPlusStudio.AuthToken.SqlServerCaching
 {
-    public class AuthTokenCacheService : BaseDapperRepository, IAuthTokenCacheService
+    public class AuthTokenCacheService : BaseDapper, IAuthTokenCacheService
     {
         private readonly AuthTokenSqlServerCacheOptions _sqlServerCacheOptions;
         public AuthTokenCacheService(string connectionString, IOptions<AuthTokenSqlServerCacheOptions> options, IMigrationRunner migrationRunner = null, ILogger logger = null)

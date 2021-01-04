@@ -6,12 +6,12 @@
     <PackageTags>auth token sql server cache migrations nativoplus</PackageTags>
     <PackageProjectUrl>https://github.com/nativoplus/NativoPlusStudio.AuthToken.SqlServerCaching</PackageProjectUrl>
     <Description>NativoPlusStudio.AuthToken.SqlServerCaching is part of the NativoPlusStudio.AuthToken set of libraries that can be used to store the auth token into a sql server cache and later retrieve it.</Description>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Nullable>disable</Nullable>
-    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
     <PackageReference Include="FluentMigrator" Version="3.2.10" />
     <PackageReference Include="FluentMigrator.Extensions.SqlServer" Version="3.2.10" />
     <PackageReference Include="FluentMigrator.Runner" Version="3.2.10" />
@@ -19,16 +19,4 @@
     <PackageReference Include="FluentMigrator.Runner.SqlServer" Version="3.2.10" />
     <PackageReference Include="NativoPlusStudio.AuthToken.Core" Version="1.0.9" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\NativoPlusStudio.DapperExtension\NativoPlusStudio.DapperExtension.csproj">
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-      <IncludeAssets>NativoPlusStudio.DapperExtension.dll</IncludeAssets>
-    </ProjectReference>
-  </ItemGroup>
-  <Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
-    <ItemGroup>
-      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
-    </ItemGroup>
-  </Target>
 </Project>
