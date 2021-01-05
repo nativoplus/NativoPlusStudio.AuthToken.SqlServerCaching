@@ -5,3 +5,5 @@ NativoPlusStudio.AuthToken.SqlServerCaching is part of the NativoPlusStudio.Auth
 https://github.com/nativoplus/NativoPlusStudio.AuthToken.SymmetricEncryption 
 https://github.com/nativoplus/NativoPlusStudio.AuthToken.Ficoso
 https://github.com/nativoplus/NativoPlusStudio.AuthToken.Core
+
+Documentation coming soon
