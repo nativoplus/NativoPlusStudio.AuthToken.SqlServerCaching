@@ -32,7 +32,7 @@ namespace NativoPlusStudio.AuthToken.SqlServerCaching
             try
             {
                 var sqlDateStringUtcNow = ConvertDateTimeToSqlDateString(DateTime.UtcNow);
-                var formattedQuery = string.Format(SqlServerCacheQueries.GetCachedAuthToken, _sqlServerCacheOptions.MinutesToKeepTokenStored.ToString(), sqlDateStringUtcNow, _sqlServerCacheOptions.Schema, _sqlServerCacheOptions.Table, protectedResourceName);
+                var formattedQuery = string.Format(SqlServerCacheQueries.GetCachedAuthToken, Math.Abs(_sqlServerCacheOptions.MinutesToSubstractFromExpirationDate).ToString(), sqlDateStringUtcNow, _sqlServerCacheOptions.Schema, _sqlServerCacheOptions.Table, protectedResourceName);
                 _logger.Information(formattedQuery);
                 return QueryFirstOrDefault<AuthTokenDetails>(
                     sql: formattedQuery

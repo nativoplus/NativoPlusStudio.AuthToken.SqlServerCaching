@@ -5,7 +5,6 @@ namespace NativoPlusStudio.AuthToken.SqlServerCaching.Configuration
     {
         public string Schema { get; set; }
         public string Table { get; set; }
-        public int MinutesToKeepTokenStored { get; set; }
+        public int MinutesToSubstractFromExpirationDate { get; set; }
     }
-
 }
