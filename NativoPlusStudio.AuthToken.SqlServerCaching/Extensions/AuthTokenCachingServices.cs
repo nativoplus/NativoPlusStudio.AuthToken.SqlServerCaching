@@ -25,14 +25,13 @@ namespace NativoPlusStudio.AuthToken.SqlServerCaching.Extensions
 
         private static void AddAuthTokenCaching(AuthTokenServicesBuilder builder, string connectionString, bool enableMigration, AuthTokenSqlServerCacheOptions options)
         {
-            var serviceProvider = builder.Services.BuildServiceProvider();
-            var logger = serviceProvider.GetService<ILogger>();
-
             if (enableMigration)
             {
                 builder.AddMigration(connectionString, options);
             }
-            
+
+            var serviceProvider = builder.Services.BuildServiceProvider();
+            var logger = serviceProvider.GetService<ILogger>();
             IMigrationRunner migrationRunner = serviceProvider.GetService<IMigrationRunner>();
 
             var cachingService = new AuthTokenCacheService(connectionString, Options.Create(options), migrationRunner, logger);
